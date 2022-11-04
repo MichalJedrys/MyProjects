@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2ef8e42a-a12d-46c2-9516-e63e661066e2}</ProjectGuid>
-    <RootNamespace>SrtParser</RootNamespace>
+    <ProjectGuid>{0eed2c2b-8ba7-4bb2-8904-e4491a2e16e1}</ProjectGuid>
+    <RootNamespace>VendingMachine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -130,9 +130,11 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SrtBase.h" />
-    <ClInclude Include="SrtParserFakeFile.h" />
-    <ClInclude Include="SrtParserRealFile.h" />
+    <ClInclude Include="Controller_Class.h" />
+    <ClInclude Include="Display_Class.h" />
+    <ClInclude Include="Exception_Classes.h" />
+    <ClInclude Include="Feeder_Class.h" />
+    <ClInclude Include="Vending_Machine_Class.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
