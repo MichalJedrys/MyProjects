@@ -17,7 +17,8 @@ In addition, there are also smaller projects in the repository created to implem
 
 ## Technologies used 🛠️
 
-- C++ Language
+- C++
+- Python 3.11
 - Object Oriented Programming
 - STL Library
 - C++ 11/14/17 features
