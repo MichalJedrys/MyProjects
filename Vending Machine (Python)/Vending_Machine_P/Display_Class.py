@@ -1,4 +1,3 @@
-from Controller_Class import Controller
 import time
 
 class Display():
@@ -17,12 +16,12 @@ class Display():
         n = input('Pick an option: ')
         
         if int(n) < 1 or int(n) > 11:
-            raise ValueError("Invalid input value. Please try again.")
+            raise ValueError("Invalid value.")
         return int(n)
 
-    def MaintenanceMenu(self):
+    def MaintenanceMenu(self,passwd):
         p = input("Enter a password: ")
-        if p == Controller.password:
+        if p == passwd:
             print("""\n     Maintenance MENU     \n 
             1. History of transactions\n
             2. Money withdraw         \n
@@ -30,7 +29,7 @@ class Display():
             4. Return to main menu    \n""")
             n = input("Pick an option: ")
             if int(n) < 1 or int(n) > 4:
-                raise ValueError("Invalid input value. Please try again.")
+                raise ValueError("Invalid value.")
             return int(n)
         else:
             print('\nWrong password. Exiting to main menu...')
