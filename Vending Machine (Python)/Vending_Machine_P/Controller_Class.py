@@ -1,21 +1,22 @@
 import time
 
 class Controller():
-    password = "HardPassword"
-    __MoneySum = 0
-    __PaymentHistory = []
 
-    Menu_Items = (
-            (2.50,"Coffee"),
-            (1.50,"Black Tea"),
-            (1.50,"Green Tea"),
-            (2.00,"Cocoa"),
-            (1.00,"Hot Water"),
-            (3.00,"Chicken Soup"),
-            (3.00,"Tomato Soup"),
-            (3.00,"Borscht"),
-            (3.50,"Miso Soup"),
-            (3.00,"Onion Soup"))
+    def __init__(self):
+        self.__password = "HardPassword"
+        self.__MoneySum = 0
+        self.__PaymentHistory = []
+        self.__Menu_Items = (
+                (2.50,"Coffee"),
+                (1.50,"Black Tea"),
+                (1.50,"Green Tea"),
+                (2.00,"Cocoa"),
+                (1.00,"Hot Water"),
+                (3.00,"Chicken Soup"),
+                (3.00,"Tomato Soup"),
+                (3.00,"Borscht"),
+                (3.50,"Miso Soup"),
+                (3.00,"Onion Soup"))
 
     def PaymentProcessing(self,item):
         print("""\n  Vending machine accepts only:  \n
@@ -28,12 +29,12 @@ class Controller():
             payment_str = input("Insert coin: ")
             payment = int(payment_str)
             if payment != 0 and payment != 0.25 and payment != 0.5 and payment != 1 and payment != 2 and payment != 5:
-                raise ValueError("Incorrect input. Please try again.")
+                raise ValueError("Invalid value.")
             if payment == 0:
                 return False
             rest-=payment
-        Controller.__MoneySum+=item[0]
-        Controller.__PaymentHistory.append(item)
+        self.__MoneySum+=item[0]
+        self.__PaymentHistory.append(item)
         if rest < 0:
             print('\nGiving change .',end=''); time.sleep(0.5)
             print('.',end=''); time.sleep(0.5)
@@ -44,14 +45,14 @@ class Controller():
     def SelectMOption(self,mopt):
         match mopt:
             case 1:
-                for x in Controller.__PaymentHistory:
+                for x in self.__PaymentHistory:
                     print(x[0] ,' - ', x[1])
                 print('\nReturning to maintenance menu...')
                 input('Press any key to continue.')
             case 2:
-                print('\nCollected: ', Controller.MoneySum ,'$\n\nReturning to maintenance menu...')
+                print('\nCollected: ', self.__MoneySum ,'$\n\nReturning to maintenance menu...')
                 input('Press any key to continue.')
-                Controller.MoneySum = 0
+                self.__MoneySum = 0
             case 3:
                 print('Vending Machine is shutting down .',end=''); time.sleep(0.5)
                 print('.',end=''); time.sleep(0.5)
@@ -61,4 +62,10 @@ class Controller():
                 pass
 
     def SelectBev(self,option):
-        return Controller.Menu_Items[option-1]
+        return self.__Menu_Items[option-1]
+
+    def GetMenu(self):
+        return self.__Menu_Items
+
+    def GetPassword(self):
+        return self.__password
