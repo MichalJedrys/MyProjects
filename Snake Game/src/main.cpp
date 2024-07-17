@@ -2,7 +2,6 @@
 
 int main() {
     Game game;
-    game.Setup();
     while(!game.exitGame())
     {
         if(!game.isGameOver()) {

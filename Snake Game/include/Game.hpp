@@ -7,6 +7,12 @@
 class Game
 {
 public:
+
+    /*
+    * @brief Constructor of game class.
+    */
+    Game() noexcept;
+
     /*
     * @brief Setup function for variables.
     */

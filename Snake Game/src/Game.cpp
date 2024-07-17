@@ -1,5 +1,9 @@
 #include "../include/Game.hpp"
 
+Game::Game() noexcept {
+    Setup();
+}
+
 void Game::Setup() noexcept {
     gameOver = false;
     dir = STOP;
