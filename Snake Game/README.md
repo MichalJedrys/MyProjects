@@ -1,4 +1,4 @@
-# Vending Machine
+# SNAKE GAME
 
 ## Description
 
