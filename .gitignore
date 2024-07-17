@@ -9,4 +9,5 @@ pch*
 *.sln
 *.config
 *.pyproj
+*.vcxproj
 *.vcxproj.filters
