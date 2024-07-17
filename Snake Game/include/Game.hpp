@@ -23,6 +23,11 @@ public:
     void Input() noexcept;
 
     /*
+    * @brief Menu input management.
+    */
+    void InputMenu() noexcept;
+
+    /*
     * @brief Logic of the game.
     */
     void Logic() noexcept;
@@ -32,9 +37,21 @@ public:
     */
     bool isGameOver() noexcept;
 
+    /*
+    * @brief Check if player wants to close the app.
+    */
+    bool exitGame() noexcept;
+
+    /*
+    * @brief Check if player wants to close the app.
+    */
+    uint16_t getScore() noexcept;
+
 private:
-    // Boolean variable to check whether the game is over.
+    // Check whether the game is over.
     bool gameOver = false;
+    // Check whether if player wants to close the app.
+    bool exit = false;
     // Constants width and height of the game board.
     static const uint8_t width = 40;
     static const uint8_t height = 20;

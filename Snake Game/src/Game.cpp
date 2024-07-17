@@ -31,7 +31,7 @@ void Game::Draw() noexcept  {
                 line = line + "F";
             else {
                 bool print = false;
-                for (int k = 0; k < nTail; k++) {
+                for (uint32_t k = 0; k < nTail; k++) {
                     if (tailX[k] == j && tailY[k] == i) {
                         line = line + "O";
                         print = true;
@@ -86,13 +86,27 @@ void Game::Input() noexcept  {
     }
 }
 
+void Game::InputMenu() noexcept  {
+    if (_kbhit()) {
+        switch (_getch()) {
+        case 'y':
+            gameOver = false;
+            Setup();
+            break;
+        case 'n':
+            exit = true;
+            break;
+        }
+    }
+}
+
 void Game::Logic() noexcept  {
     int prevX = tailX[0];
     int prevY = tailY[0];
     tailX[0] = x;
     tailY[0] = y;
 
-    for (int i = 1; i < nTail; i++) {
+    for (uint32_t i = 1; i < nTail; i++) {
         tailX[i] = tailX[i] ^ prevX; 
         prevX = tailX[i] ^ prevX; 
         tailX[i] = tailX[i] ^ prevX; 
@@ -123,7 +137,7 @@ void Game::Logic() noexcept  {
         gameOver = true;
     }
 
-    for (int i = 1; i < nTail; i++){
+    for (uint32_t i = 1; i < nTail; i++){
         if (tailX[i] == x && tailY[i] == y){
             gameOver = true; 
         }
@@ -140,4 +154,14 @@ void Game::Logic() noexcept  {
 bool Game::isGameOver() noexcept 
 {
     return gameOver;
+}
+
+bool Game::exitGame() noexcept 
+{
+    return exit;
+}
+
+uint16_t Game::getScore() noexcept 
+{
+    return score;
 }

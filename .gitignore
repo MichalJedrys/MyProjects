@@ -11,3 +11,4 @@ pch*
 *.pyproj
 *.vcxproj
 *.vcxproj.filters
+*.bat
