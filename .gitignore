@@ -1,0 +1,12 @@
+# Directories
+.vscode/
+.vs/
+
+# Files
+pch*
+
+# Extensions
+*.sln
+*.config
+*.pyproj
+*.vcxproj.filters
