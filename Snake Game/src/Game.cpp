@@ -1,10 +1,25 @@
 #include "../include/Game.hpp"
 
-Game::Game() noexcept {
-    Setup();
+Game::Game(Console& console) noexcept 
+: console(console){
+    setup();
 }
 
-void Game::Setup() noexcept {
+void Game::run() noexcept {
+    draw();
+    input();
+    logic();
+    Sleep(100);
+}
+
+void Game::restart() noexcept{
+    if (console.getStatus())
+    {
+        setup();
+    }
+    
+}
+void Game::setup() noexcept {
     gameOver = false;
     dir = STOP;
     x = width / 2;
@@ -14,10 +29,13 @@ void Game::Setup() noexcept {
     fruitX = rand() % width;
     fruitY = rand() % height;
     score = 0;
+    nTail = 0;
 }
 
-void Game::Draw() noexcept  {
-    system("cls");
+void Game::draw() noexcept  {
+    
+    console.clear();
+
     std::cout << "Use WASD to control. Press X to exit." << std::endl;
     for (int i = 0; i < width + 2; i++)
         std::cout << "#";
@@ -56,7 +74,7 @@ void Game::Draw() noexcept  {
     std::cout << "Score: " << score << std::endl;
 }
 
-void Game::Input() noexcept  {
+void Game::input() noexcept  {
     if (_kbhit()) {
         switch (_getch()) {
         case 'a':
@@ -90,21 +108,7 @@ void Game::Input() noexcept  {
     }
 }
 
-void Game::InputMenu() noexcept  {
-    if (_kbhit()) {
-        switch (_getch()) {
-        case 'y':
-            gameOver = false;
-            Setup();
-            break;
-        case 'n':
-            exit = true;
-            break;
-        }
-    }
-}
-
-void Game::Logic() noexcept  {
+void Game::logic() noexcept  {
     int prevX = tailX[0];
     int prevY = tailY[0];
     tailX[0] = x;
@@ -160,10 +164,7 @@ bool Game::isGameOver() noexcept
     return gameOver;
 }
 
-bool Game::exitGame() noexcept 
-{
-    return exit;
-}
+
 
 uint16_t Game::getScore() noexcept 
 {

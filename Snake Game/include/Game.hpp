@@ -1,8 +1,12 @@
+#ifndef GAME_HPP
+#define GAME_HPP
+
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
 #include <vector>
 #include <string>
+#include "Console.hpp"
 
 class Game
 {
@@ -11,32 +15,37 @@ public:
     /*
     * @brief Constructor of game class.
     */
-    Game() noexcept;
+    Game(Console& console) noexcept;
+
+    /*
+    * @brief Main function to run the game.
+    */
+    void run() noexcept;
 
     /*
     * @brief Setup function for variables.
     */
-    void Setup() noexcept;
+    void setup() noexcept;
 
     /*
     * @brief Function to draw the board.
     */
-    void Draw() noexcept;
+    void draw() noexcept;
+
+    /*
+    * @brief Restart game.
+    */
+    void restart() noexcept;
 
     /*
     * @brief Input management.
     */
-    void Input() noexcept;
-
-    /*
-    * @brief Menu input management.
-    */
-    void InputMenu() noexcept;
+    void input() noexcept;
 
     /*
     * @brief Logic of the game.
     */
-    void Logic() noexcept;
+    void logic() noexcept;
 
     /*
     * @brief Check if game is over.
@@ -46,18 +55,11 @@ public:
     /*
     * @brief Check if player wants to close the app.
     */
-    bool exitGame() noexcept;
-
-    /*
-    * @brief Check if player wants to close the app.
-    */
     uint16_t getScore() noexcept;
 
 private:
     // Check whether the game is over.
     bool gameOver = false;
-    // Check whether if player wants to close the app.
-    bool exit = false;
     // Constants width and height of the game board.
     static const uint8_t width = 40;
     static const uint8_t height = 20;
@@ -80,4 +82,8 @@ private:
     enum enumDir { STOP = 0, LEFT, RIGHT, UP, DOWN };
     // Current direction of the snake.
     enumDir dir = STOP;
+    // Reference to console.
+    Console& console;
 };
+
+#endif  // GAME_HPP
