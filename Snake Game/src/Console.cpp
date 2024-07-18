@@ -1,4 +1,4 @@
-#include "../include/Console.hpp"
+#include "Console.hpp"
 
 void Console::clear() noexcept {
     // Get the console handle

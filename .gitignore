@@ -1,6 +1,7 @@
 # Directories
 .vscode/
 .vs/
+build/
 
 # Files
 pch*
