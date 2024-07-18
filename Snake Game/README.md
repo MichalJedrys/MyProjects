@@ -8,6 +8,8 @@ Typical rules apply:
 - You have to eat fruits(F) to score points. 
 - Hitting the snake on the wall or on itself means the end of the game.
 
+Interface:
+
 ![Screenshot](img/console.png)
 
 ## Future additions
