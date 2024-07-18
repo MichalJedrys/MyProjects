@@ -13,8 +13,7 @@ void Game::run() noexcept {
 }
 
 void Game::restart() noexcept{
-    if (console.getStatus())
-    {
+    if (console.getStatus()){
         setup();
     }
     
@@ -36,12 +35,14 @@ void Game::draw() noexcept  {
     
     console.clear();
 
-    std::cout << "Use WASD to control. Press X to exit." << std::endl;
-    for (int i = 0; i < width + 2; i++)
-        std::cout << "#";
-    std::cout << std::endl;
-
     std::string line = "";
+
+    line = line + "Use WASD to control. Press X to exit.\n";
+    for (int i = 0; i < width + 2; i++){
+        line = line + "#";      
+    }
+        
+    line = line + '\n';
 
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width + 1; j++) {
@@ -63,15 +64,17 @@ void Game::draw() noexcept  {
                     line = line + " ";
             }
         }
-        std::cout << line << std::endl;
-        line = "";
+        line = line + '\n';
     }
 
-    for (int i = 0; i < width + 2; i++)
-        std::cout << "#";
-    std::cout << std::endl;
+    for (int i = 0; i < width + 2; i++){
+        line = line + "#";
+    }
+    line = line + '\n';
 
-    std::cout << "Score: " << score << std::endl;
+    line = line + "Score: " + std::to_string(score);
+
+    std::cout << line << std::endl;
 }
 
 void Game::input() noexcept  {

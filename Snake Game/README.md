@@ -15,5 +15,5 @@ Interface:
 ## Future additions
 There are few features in development:
 - more advanced graphics
-- levels
+- levels (changing speed)
 - obstacles
