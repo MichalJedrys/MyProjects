@@ -4,8 +4,8 @@
 
 ## Contents 🔧
 
-The two most extensive projects are: 
-- Vending Machine
+Portfolio contains three projects:
+- Vending Machine (both in python and c++)
 - SRT Parser
 - Snake Game
 
