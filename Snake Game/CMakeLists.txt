@@ -29,4 +29,9 @@ set_target_properties(snake PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL ${CMAKE_SOURCE_DIR}/output
 )
 
-set(CMAKE_EXE_LINKER_FLAGS "-static")
+if(MSVC)
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+else()
+    set(CMAKE_EXE_LINKER_FLAGS "-static")
+endif()
