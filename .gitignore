@@ -13,3 +13,4 @@ pch*
 *.vcxproj
 *.vcxproj.filters
 *.bat
+*.pdb
