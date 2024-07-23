@@ -9,7 +9,7 @@ void log(const std::string& message) {
 
 int main() {
     database* db;
-    int rc = sqlite3_open("library.db", &db);
+    int rc = sqlite3_open("LibraryDatabase.db", &db);
     if (rc) {
         std::cerr << "Can't open database: " << errorMessage(db) << std::endl;
         return 1;
