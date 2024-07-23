@@ -4,11 +4,12 @@
 
 ## Contents 🔧
 
-Portfolio contains three projects:
-- Vending Machine (both in python and c++)
-- SRT Parser
-- Snake Game
+Portfolio contains four projects.
+In order of importance:
 - Library Management System
+- Snake Game
+- SRT Parser
+- Vending Machine (both in python and c++)
 
 ## Technologies used 🛠️
 
