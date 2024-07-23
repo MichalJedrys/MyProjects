@@ -69,7 +69,7 @@ bool deleteBook(database* db, int bookId) {
         std::cerr << "SQL error: " << errorMessage(db) << std::endl;
         return false;
     }
-    sqlite3_bind_int(statement, 1, bookId);
+    setInt(statement, 1, bookId);
     if (!evaluateStatement(statement)) {
         std::cerr << "SQL error: " << errorMessage(db) << std::endl;
         sqlFinalize(statement);
