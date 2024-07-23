@@ -2,8 +2,9 @@
 
 ## Description
 
-"The Library Management System (LMS) is a software tool that helps manage a library's daily tasks. It makes it easy to handle book inventory, register members, and manage book loans and returns. 
-Admins can log in to manage books and users, while members can log in to search for, borrow, and return books. The LMS is built with C++ and SQLite. Project is still in development.
+The Library Management System (LMS) is a software tool that helps manage a library's daily tasks. It makes it easy to handle book inventory, register members, and manage book loans and returns. 
+Admins can log in to manage books and users, while members can log in to search for, borrow, and return books. The LMS is built with C++ and SQLite. All functionalities are tested with GTest. 
+Still in development.
 
 ## Current features
 
