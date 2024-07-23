@@ -8,14 +8,16 @@ Portfolio contains three projects:
 - Vending Machine (both in python and c++)
 - SRT Parser
 - Snake Game
+- Library Management System
 
 ## Technologies used 🛠️
 
-- C++
+- C++ 11/14/17
 - Python 3.11
 - Cmake
+- GTest
 - Object Oriented Programming
 - STL Library
-- C++ 11/14/17 features
+- SQLite
 - Microsoft Visual Studio Community 2022
 - Microsoft Visual Studio Code
