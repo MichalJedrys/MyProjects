@@ -15,7 +15,7 @@ int main() {
         return 1;
     }
 
-    if (!createBooksTable(db)) {
+    if (!BooksTable::createBooksTable(db)) {
         std::cerr << "Failed to create books table." << std::endl;
         sqlite3_close(db);
         return 1;

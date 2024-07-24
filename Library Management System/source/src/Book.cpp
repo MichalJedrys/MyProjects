@@ -1,80 +1,21 @@
 #include "Book.hpp"
 
-bool addBook(database* db, const Book& book) {
-    std::string sql = "INSERT INTO books (title, author, genre, isbn) VALUES (?, ?, ?, ?)";
-    sqlStatement* statement;
-    if (!prepareStatement(db, sql, &statement)) {
-        std::cerr << "SQL error: " << errorMessage(db) << std::endl;
-        return false;
-    }
-    setText(statement, 1, book.title);
-    setText(statement, 2, book.author);
-    setText(statement, 3, book.genre);
-    setText(statement, 4, book.isbn);
-    if (!evaluateStatement(statement)) {
-        std::cerr << "SQL error: " << errorMessage(db) << std::endl;
-        sqlFinalize(statement);
-        return false;
-    }
-    sqlFinalize(statement);
-    return true;
+Book::Book(int id, std::string title, std::string author, std::string genre, std::string isbn) noexcept
+{
+    mId = id;;
+    mTitle = title;
+    mAuthor = author;
+    mGenre = genre;
+    mIsbn = isbn;
 }
 
-void viewBooks(database* db) {
-    std::string sql = "SELECT id, title, author, genre, isbn FROM books";
-    sqlStatement* statement;
-    if (!prepareStatement(db, sql, &statement)) {
-        std::cerr << "SQL error: " << errorMessage(db) << std::endl;
-        return;
-    }
-    while (hasRow(statement)) {
-        Book book;
-        
-        book.id = getInt(statement, 0);
-        book.title = getText(statement, 1);
-        book.author = getText(statement, 2);
-        book.genre = getText(statement, 3);
-        book.isbn = getText(statement, 4);
-
-        std::cout << "ID: " << book.id << ", Title: " << book.title << ", Author: " << book.author << ", Genre: " << book.genre << ", ISBN: " << book.isbn << std::endl;
-    }
-    sqlFinalize(statement);
+bool Book::operator==(const Book& other) const noexcept
+{
+    return (this->mTitle == other.mTitle) && (this->mAuthor == other.mAuthor) && (this->mGenre == other.mGenre) && (this->mIsbn == other.mIsbn);
 }
 
-bool updateBook(database* db, const Book& book) {
-    std::string sql = "UPDATE books SET title = ?, author = ?, genre = ?, isbn = ? WHERE id = ?";
-    sqlStatement* statement;
-    if (!prepareStatement(db, sql, &statement)) {
-        std::cerr << "SQL error: " << errorMessage(db) << std::endl;
-        return false;
-    }
-    setText(statement, 1, book.title);
-    setText(statement, 2, book.author);
-    setText(statement, 3, book.genre);
-    setText(statement, 4, book.isbn);
-    setInt(statement, 5, book.id);
-    if (!evaluateStatement(statement)) {
-        std::cerr << "SQL error: " << errorMessage(db) << std::endl;
-        sqlFinalize(statement);
-        return false;
-    }
-    sqlFinalize(statement);
-    return true;
-}
-
-bool deleteBook(database* db, int bookId) {
-    std::string sql = "DELETE FROM books WHERE id = ?";
-    sqlStatement* statement;
-    if (!prepareStatement(db, sql, &statement)) {
-        std::cerr << "SQL error: " << errorMessage(db) << std::endl;
-        return false;
-    }
-    setInt(statement, 1, bookId);
-    if (!evaluateStatement(statement)) {
-        std::cerr << "SQL error: " << errorMessage(db) << std::endl;
-        sqlFinalize(statement);
-        return false;
-    }
-    sqlFinalize(statement);
-    return true;
+std::ostream& operator<<(std::ostream& os, const Book& book) noexcept
+{
+    os << "ID: " << book.mId << ", Title: " << book.mTitle << ", Author: " << book.mAuthor << ", Genre: " << book.mGenre << ", ISBN: " << book.mIsbn << std::endl;
+    return os;
 }

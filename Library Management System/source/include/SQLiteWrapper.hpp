@@ -52,4 +52,6 @@ inline uint8_t getInt(sqlStatement* stmt, uint8_t column) {
     return sqlite3_column_int(stmt, column);
 }
 
+bool prepAndEvaluate(database* db, std::string str);
+
 #endif // SQLITEWRAPPER_HPP

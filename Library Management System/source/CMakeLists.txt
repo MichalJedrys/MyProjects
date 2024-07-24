@@ -7,6 +7,7 @@ target_sources(library_management_system_lib PRIVATE
     src/Book.cpp
     src/Menu.cpp
     src/Table.cpp
+    src/SQLiteWrapper.cpp
 )
 
 # Include directories
