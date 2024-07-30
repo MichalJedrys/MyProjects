@@ -1,4 +1,4 @@
-#include "Vending_Machine_Class.h"
+#include "VendingMachine.hpp"
 
 int main()
 {
