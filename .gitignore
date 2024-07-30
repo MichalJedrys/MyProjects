@@ -3,6 +3,8 @@
 .vs/
 build/
 debug/
+venv/
+__pycache__/
 
 # Files
 pch*

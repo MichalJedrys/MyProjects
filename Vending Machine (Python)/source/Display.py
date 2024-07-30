@@ -1,7 +1,6 @@
 import time
 
 class Display():
-
     def Start(self):
         print("Vending Machine is starting .",end=''); time.sleep(0.5)
         print('.',end=''); time.sleep(0.5)

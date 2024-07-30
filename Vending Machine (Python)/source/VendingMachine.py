@@ -1,9 +1,8 @@
-from Feeder_Class import FeederDrink,FeeederSoup
-from Display_Class import Display
-from Controller_Class import Controller
+from Feeder import Feeder
+from Display import Display
+from Controller import Controller
 
-class VendingMachine(Display,Controller,FeederDrink,FeeederSoup):
-
+class VendingMachine(Display,Controller,Feeder):
     def __init__(self):
             self.__option = -1
             self.__moption = -1
@@ -26,17 +25,3 @@ class VendingMachine(Display,Controller,FeederDrink,FeeederSoup):
                 else:
                     super().SoySauce()
                 super().PrepDisp(self.__product)
-
-
-
-#main code
-Machine = VendingMachine()
-Machine.Start()
-while True:
-    try:
-        Machine.work()
-    except ValueError as error:
-        print("Error: Invalid input value. Please try again.")
-    except:
-        print("Ops, something went wrong. Try again")
-        quit()

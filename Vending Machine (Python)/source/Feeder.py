@@ -1,14 +1,9 @@
-class Feeder:
-    pass
-
-class FeeederSoup(Feeder):
+class Feeder():
     def SoySauce(self):
         c = input('\nDo you want to add soy sauce? (y/n)')
         if c != 'y' and c != 'n':
             raise ValueError("Invalid value.")
  
-
-class FeederDrink(Feeder):
     def MilkAndSugar(self,ID):
         if ID==1:
             c = input('\nDo you want to add milk? (y/n)')

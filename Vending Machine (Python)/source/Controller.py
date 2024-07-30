@@ -1,7 +1,6 @@
 import time
 
 class Controller():
-
     def __init__(self):
         self.__password = "HardPassword"
         self.__MoneySum = 0
