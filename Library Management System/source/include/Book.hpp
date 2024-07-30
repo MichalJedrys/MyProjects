@@ -13,9 +13,10 @@ public:
      */
     Book() noexcept = default;
 
-    /*
-    * @brief Parameterized constructor
-    */
+
+    /**
+     * @brief Parameterized constructor
+     */
     Book(int id, std::string title, std::string author, std::string genre, std::string isbn) noexcept;
 
     /**
